@@ -21,12 +21,12 @@ public interface PatientDao {
 	 * This updatePatient will update doctor details in database
 	 * @param patient
 	 */
-	public void updatePatient(Patient patient);
+	public void updatePatient(Patient patient,int patientId);
 	/**
 	 * This deletePatient method will delete record of patient from database
 	 * @param patient
 	 */
-	public void deletePatient(Patient patient);
+	public void deletePatient(int patientId);
 	/**
 	 * This will return the list of all the doctors from database
 	 * @return
