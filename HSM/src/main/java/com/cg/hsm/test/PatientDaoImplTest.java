@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 import com.cg.hsm.daoimpl.PatientDaoImpl;
 import com.cg.hsm.domain.Patient;
+import com.cg.hsm.domain.PatientHistory;
 /**
  * This class tests the functionalities of PatientDaoImpl Class
  * It checks whether all CRUD operations are performed correctly and ensures data is stored in database
@@ -90,14 +91,42 @@ public class PatientDaoImplTest {
 		
 		
 	}
+	public static void PatientHistory() {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("----------patient's history------------");
+		System.out.println("enter the id of the patient");
+		int patientId=sc.nextInt();
+		sc.nextLine();
+		PatientHistory patientHistory = new PatientHistory();
+		System.out.println("Enter Patient disease");
+		patientHistory.setDiseaseName(sc.next());
+		sc.nextLine();
+		System.out.println("Enter the BloodGroup");
+		patientHistory.setBloodGroup(sc.next());
+		sc.nextLine();
+		System.out.println("Enter Diet advised to the patient");
+		patientHistory.setDietAdvised(sc.next());
+		sc.nextLine();
+		System.out.println("enter the treatment status of the patient");
+		patientHistory.setTreatmentStatus(sc.next());
+		sc.nextLine();
+		
+		System.out.println("Enter the reports name");
+		patientHistory.setReports(sc.next());
+		sc.nextLine();
+		PatientDaoImpl impl=new PatientDaoImpl();
+		impl.patientHistory(patientHistory,patientId);
+		
+	}
 		public static void main(String[] args) {
 			Scanner sc=new Scanner(System.in);
 			int continueChoice;
 			System.out.println("------MENU------");
 			System.out.println("1. Register patient");
-			System.out.println("2. FindAll ");
+			System.out.println("2. get all patient details ");
 			System.out.println("3. UpdatePatient");
 			System.out.println("4. RemovePatient");
+			System.out.println("5.Patient History");
 			System.out.println("Enter the choice");
 			int choice=sc.nextInt();
 			
@@ -107,7 +136,7 @@ public class PatientDaoImplTest {
 					break;
 			case 2:
 				PatientDaoImpl impl = new PatientDaoImpl();
-				impl.findAll();
+				impl.getAllPatientDetails();
 				System.out.println("-------------------");
 				break;
 			
@@ -118,6 +147,9 @@ public class PatientDaoImplTest {
 			case 4:
 					RemovePatient();
 					break;
+			case 5:
+				   PatientHistory();
+				   break;
 			default:
 				break;
 			}
