@@ -1,5 +1,9 @@
 package com.cg.hsm.domain;
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 /**
  * This class will create doctors table in database and get all doctor details
  * @author Pranjali Chaudhari
@@ -43,7 +47,7 @@ public class Doctor {
 	/**
 	 * Fees of the doctor.
 	 */
-	private int fees;
+	private int doctorFee;
 	
 	//Getters and Setters
 	public int getDoctorId() {
@@ -88,16 +92,16 @@ public class Doctor {
 	public void setYearsOfExperience(int yearsOfExperience) {
 		this.yearsOfExperience = yearsOfExperience;
 	}
-	public int getFees() {
-		return fees;
+	public int getDoctorFee() {
+		return doctorFee;
 	}
-	public void setFees(int fees) {
-		this.fees = fees;
+	public void setDoctorFee(int fees) {
+		this.doctorFee = fees;
 	}
 	
 	//Parameterized Constructor
 	public Doctor(int doctorId, String doctorName, long contactNumber, int hoursOfAvailability, String specialization,
-			String degree, int yearsOfExperience, int fees) {
+			String degree, int yearsOfExperience, int doctorFee) {
 		super();
 		this.doctorId = doctorId;
 		this.doctorName = doctorName;
@@ -106,7 +110,7 @@ public class Doctor {
 		this.specialization = specialization;
 		this.degree = degree;
 		this.yearsOfExperience = yearsOfExperience;
-		this.fees = fees;
+		this.doctorFee = doctorFee;
 	}
 	
 	//Default Constructor
@@ -120,7 +124,7 @@ public class Doctor {
 	public String toString() {
 		return "Patient [doctorId=" + doctorId + ", doctorName=" + doctorName + ", contactNumber=" + contactNumber
 				+ ", hoursOfAvailability=" + hoursOfAvailability + ", specialization=" + specialization + ", degree="
-				+ degree + ", yearsOfExperience=" + yearsOfExperience + ", fees=" + fees + "]";
+				+ degree + ", yearsOfExperience=" + yearsOfExperience + ", doctorFees=" + doctorFee + "]";
 	}
 	
 	
