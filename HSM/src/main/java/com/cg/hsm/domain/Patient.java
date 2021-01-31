@@ -43,8 +43,18 @@ public class Patient {
 	 * fee for the patient admission fee
 	 */
 	private int admissionFee;
+	/**
+	 * policy id for the patient
+	 */
+	private int policyId;
+	/**
+	 * policy name for the patient 
+	 */
+	private String policyName;
+	
 	
 	//getters and setters
+	
 	
 	
 	public int getPatientId() {
@@ -89,8 +99,22 @@ public class Patient {
 	public void setAdmissionFee(int admissionFee) {
 		this.admissionFee = admissionFee;
 	}
+	public int getPolicyId() {
+		return policyId;
+	}
+	public void setPolicyId(int policyId) {
+		this.policyId = policyId;
+	}
+	public String getPolicyName() {
+		return policyName;
+	}
+	public void setPolicyName(String policyName) {
+		this.policyName = policyName;
+	}
+	
 	
 	//Parameterized Constructor
+	
 	public Patient(int id, String patientName, int patientAge, long patientContact, String address, String symptoms,
 			int admissionFee) {
 		super();
@@ -108,12 +132,11 @@ public class Patient {
 			super();
 			
 		}
-		
 		@Override
 		public String toString() {
 			return "Patient [patientId=" + patientId + ", patientName=" + patientName + ", patientAge=" + patientAge
 					+ ", patientContact=" + patientContact + ", address=" + address + ", symptoms=" + symptoms
-					+ ", admissionFee=" + admissionFee + "]";
+					+ ", admissionFee=" + admissionFee + ", policyId=" + policyId + ", policyName=" + policyName + "]";
 		}
 		
 	
