@@ -6,6 +6,7 @@ import javax.persistence.Query;
 
 import com.cg.hsm.dao.PatientDao;
 import com.cg.hsm.domain.Patient;
+import com.cg.hsm.domain.PatientHistory;
 import com.cg.hsm.util.DbUtil;
 
 public class PatientDaoImpl extends DbUtil implements PatientDao {
@@ -62,7 +63,7 @@ public class PatientDaoImpl extends DbUtil implements PatientDao {
 	 * This findAll method will list all patient details 
 	 */
 	@Override
-	public List<Patient> findAll() {
+	public List<Patient> getAllPatientDetails() {
 		// TODO Auto-generated method stub
 		Query query =entityManager.createQuery("from Patient");	
 		List<Patient> patients =  query.getResultList();
@@ -78,6 +79,21 @@ public class PatientDaoImpl extends DbUtil implements PatientDao {
 			System.out.println("Policy Name : "+patient.getPolicyName());
 		}
 		return null;
+	}
+	@Override
+	public void patientHistory(PatientHistory patientHistory, int patientId) {
+		// TODO Auto-generated method stub
+		entityManager.getTransaction().begin();
+		 Patient patient= entityManager.find(Patient.class, patientId);
+		 entityManager.persist(patientHistory);
+		 entityManager.getTransaction().commit();
+		 entityManager.persist(patientHistory);
+		 entityManager.close();
+	}
+	@Override
+	public void patientCase(int patientId) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 
