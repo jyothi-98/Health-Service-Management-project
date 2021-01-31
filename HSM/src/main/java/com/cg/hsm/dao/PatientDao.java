@@ -32,6 +32,17 @@ public interface PatientDao {
 	 * @return
 	 */
 	List<Patient> findAll();
+	/**
+	 * This patientHistory method will add the history of the patient
+	 * @param patientHistory
+	 * @param patientId
+	 */
+	public void patientHistory(PatientHistory patientHistory , int patientId);
+	/**
+	 * This patientCase method will add patientcase details to patient table
+	 * @param patientId
+	 */
+	public void patientCase(int patientId);
 }
 	
 
