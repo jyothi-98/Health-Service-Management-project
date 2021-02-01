@@ -86,8 +86,14 @@ public class PatientDaoImpl extends DbUtil implements PatientDao {
 		entityManager.getTransaction().begin();
 		 Patient patient= entityManager.find(Patient.class, patientId);
 		 entityManager.persist(patientHistory);
-		 entityManager.getTransaction().commit();
-		 entityManager.persist(patientHistory);
+		 
+		entityManager.getTransaction().commit();
+		 patientHistory.setDiseaseName(patientHistory.getDiseaseName());
+		 patientHistory.setBloodGroup(patientHistory.getBloodGroup());
+		 patientHistory.setTreatmentStatus(patientHistory.getTreatmentStatus());
+		 patientHistory.setDietAdvised(patientHistory.getDietAdvised());
+		 patientHistory.setReports(patientHistory.getReports());
+		 patient.PatientHistory(patientHistory); 
 		 entityManager.close();
 	}
 	@Override
